@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COVID-19 Statistics</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>COVID-19 Statistics</h1>
+  </header>
+  <main>
+    <div class="search">
+      <form action="/search" method="POST">
+        <input type="text" name="country" placeholder="Enter country name" required>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div class="stats">
+      <% if (country) { %>
+        <h2>Statistics for <%= country.charAt(0).toUpperCase() + country.slice(1) %></h2>
+      <% } else { %>
+        <h2>Global Statistics</h2>
+      <% } %>
+      <p id="totalCases" class="yellow">Total Cases: <%= totalCases %></p>
+      <p id="deaths" class="red">Deaths: <%= deaths %></p>
+      <p id="recovered" class="green">Recovered: <%= recovered %></p>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 Made with ❤️ by Luka Susha 2024</p>
+  </footer>
+</body>
+</html>
